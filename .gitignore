@@ -12,7 +12,9 @@ build/
 .svn/
 .swiftpm/
 migrate_working_dir/
-
+.idea/
+.dart_tool/
+.vscode/
 # IntelliJ related
 *.iml
 *.ipr
