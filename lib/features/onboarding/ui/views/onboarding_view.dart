@@ -19,8 +19,8 @@ class OnboardingView extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 30.h),
             child: Column(
               children: [
-                AppLogoAndName(),
-                DoctorImageAndText(),
+                const AppLogoAndName(),
+                const DoctorImageAndText(),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: Column(
@@ -34,7 +34,7 @@ class OnboardingView extends StatelessWidget {
                   ),
                 ),
                 Gap(30.h),
-                GetStartedButton(),
+                const GetStartedButton(),
               ],
             ),
           ),
