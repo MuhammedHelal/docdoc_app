@@ -36,7 +36,7 @@ class DoctorImageAndText extends StatelessWidget {
               height: 1.4,
             ),
           ),
-        )
+        ),
       ],
     );
   }
