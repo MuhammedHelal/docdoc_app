@@ -14,7 +14,7 @@ build/
 migrate_working_dir/
 .idea/
 .dart_tool/
-,/vscode/
+.vscode/
 # IntelliJ related
 *.iml
 *.ipr
