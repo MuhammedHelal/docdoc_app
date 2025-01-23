@@ -28,7 +28,7 @@ class GetStartedButton extends StatelessWidget {
         },
         child: Text(
           'Get Started',
-          style: TextStyles.white16Normal,
+          style: TextStyles.white16W600,
         ),
       ),
     );

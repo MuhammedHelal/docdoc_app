@@ -5,18 +5,18 @@ import '../../features/onboarding/ui/views/onboarding_view.dart';
 import 'routes_strings.dart';
 
 // comment
-Route onGenerateRoute(RouteSettings settings) {
+Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case '/':
-      return MaterialPageRoute(builder: (_) => Container());
+      return MaterialPageRoute<dynamic>(builder: (_) => Container());
     case RoutesStrings.onBoarding:
       return MaterialPageRoute(
-        builder: (_) => OnboardingView(),
+        builder: (_) => const OnboardingView(),
       );
 
     case RoutesStrings.login:
       return MaterialPageRoute(
-        builder: (_) => LoginView(),
+        builder: (_) => const LoginView(),
       );
     default:
       return MaterialPageRoute(
