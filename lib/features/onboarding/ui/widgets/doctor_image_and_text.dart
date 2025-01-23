@@ -9,6 +9,7 @@ class DoctorImageAndText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.center,
       children: [
         SvgPicture.asset(
           Assets.svgsAppLogoLowOpacity,
@@ -29,10 +30,8 @@ class DoctorImageAndText extends StatelessWidget {
         ),
         Positioned(
           bottom: 30,
-          left: 0,
-          right: 0,
           child: Text(
-            'Mohamed Ashraf\nAppointment App',
+            'Mohamed Ashraf`s\nAppointment App',
             style: TextStyles.primary32Bold.copyWith(
               height: 1.4,
             ),

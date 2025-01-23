@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'routes_strings.dart';
+import 'package:flutter_advanced/features/auth/ui/views/login_view.dart';
+
 import '../../features/onboarding/ui/views/onboarding_view.dart';
+import 'routes_strings.dart';
 
 Route onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -9,6 +11,11 @@ Route onGenerateRoute(RouteSettings settings) {
     case RoutesStrings.onBoarding:
       return MaterialPageRoute(
         builder: (_) => OnboardingView(),
+      );
+
+    case RoutesStrings.login:
+      return MaterialPageRoute(
+        builder: (_) => LoginView(),
       );
     default:
       return MaterialPageRoute(

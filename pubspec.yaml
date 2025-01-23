@@ -98,3 +98,18 @@ flutter_assets:
   filename: assets.dart
   field_prefix: null
   ignore_comments: true
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/splash.png
+  # branding_bottom_padding: 24
+  # color_dark: "#121212"
+  # image_dark: assets/logo-production.png
+
+  # android_12:
+  #   image: assets/logo-production.png
+  #   icon_background_color: "#ffffff"
+  #   image_dark: assets/logo-production.png
+  #   icon_background_color_dark: "#121212"
+
+  web: false
