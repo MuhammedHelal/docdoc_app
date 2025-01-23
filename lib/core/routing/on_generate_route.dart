@@ -4,6 +4,7 @@ import 'package:flutter_advanced/features/auth/ui/views/login_view.dart';
 import '../../features/onboarding/ui/views/onboarding_view.dart';
 import 'routes_strings.dart';
 
+// comment
 Route onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
     case '/':
