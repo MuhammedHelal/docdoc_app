@@ -31,7 +31,6 @@ linter:
     - avoid_returning_null
     - prefer_inlined_adds
     - avoid_empty_else
-    - sort_constructors_first
     - prefer_collection_literals
     - avoid_escaping_inner_quotes
 
