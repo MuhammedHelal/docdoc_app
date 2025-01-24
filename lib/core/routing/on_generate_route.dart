@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced/core/DI/locator.dart';
+import 'package:flutter_advanced/features/auth/logic/login_cubit/login_cubit.dart';
 import 'package:flutter_advanced/features/auth/ui/views/login_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/onboarding/ui/views/onboarding_view.dart';
 import 'routes_strings.dart';
@@ -16,7 +19,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
 
     case RoutesStrings.login:
       return MaterialPageRoute(
-        builder: (_) => const LoginView(),
+        builder: (_) => BlocProvider(
+          create: (context) => locator<LoginCubit>(),
+          child: const LoginView(),
+        ),
       );
     default:
       return MaterialPageRoute(
