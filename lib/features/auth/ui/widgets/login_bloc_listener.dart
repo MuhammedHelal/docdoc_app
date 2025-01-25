@@ -19,6 +19,17 @@ class LoginBlocListener extends StatelessWidget {
       listenWhen: (previous, current) => previous != current,
       listener: (context, state) {
         state.whenOrNull(
+          loading: () {
+            showDialog(
+              context: context,
+              builder: (_) => Center(
+                child: LoadingAnimationWidget.dotsTriangle(
+                  color: AppColors.primary,
+                  size: 150,
+                ),
+              ),
+            );
+          },
           success: (data) {
             context.pop();
 
@@ -43,17 +54,6 @@ class LoginBlocListener extends StatelessWidget {
                       style: TextStyles.grey14Normal,
                     ),
                   ],
-                ),
-              ),
-            );
-          },
-          loading: () {
-            showDialog(
-              context: context,
-              builder: (_) => Center(
-                child: LoadingAnimationWidget.dotsTriangle(
-                  color: AppColors.primary,
-                  size: 150,
                 ),
               ),
             );

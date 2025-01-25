@@ -3,8 +3,8 @@ import 'package:flutter_advanced/core/theming/text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
-class LoginFooter extends StatelessWidget {
-  const LoginFooter({super.key});
+class TermsAndDonotHaveAccount extends StatelessWidget {
+  const TermsAndDonotHaveAccount({super.key});
 
   @override
   Widget build(BuildContext context) {

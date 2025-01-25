@@ -4,9 +4,7 @@ import 'package:flutter_advanced/features/auth/logic/login_cubit/login_cubit.dar
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({
-    super.key,
-  });
+  const LoginButton({super.key});
 
   @override
   Widget build(BuildContext context) {

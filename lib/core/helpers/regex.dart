@@ -4,7 +4,10 @@ abstract class AppRegex {
   static const _hasNumber = r'^(?=.*[0-9])';
   static const _hasSpecialCharacter = r'^(?=.*[!@#\$&*~])';
   static const _hasMinLength = r'.{8,}';
+  static final String _emailRegex =
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
 
+  static bool isEmailValid(String email) => RegExp(_emailRegex).hasMatch(email);
   static bool hasLowerCase(String password) =>
       RegExp(_hasLowerCase).hasMatch(password);
 

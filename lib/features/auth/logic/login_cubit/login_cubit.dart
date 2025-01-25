@@ -41,12 +41,9 @@ class LoginCubit extends Cubit<LoginState> {
       emailValid.value = false;
       shouldLoginButtonWork.value = false;
       return;
-    } else if (!value.contains('@')) {
-      emailValid.value = false;
-      shouldLoginButtonWork.value = false;
-      return;
     }
-    emailValid.value = true;
+    emailValid.value = AppRegex.isEmailValid(value);
+
     shouldLoginButtonWork.value = emailValid.value && passwordValid.value;
   }
 
