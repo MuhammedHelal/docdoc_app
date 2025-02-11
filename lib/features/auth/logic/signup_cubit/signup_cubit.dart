@@ -1,45 +1,47 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_advanced/core/helpers/regex.dart';
-import 'package:flutter_advanced/features/auth/data/models/login_request_body.dart';
-import 'package:flutter_advanced/features/auth/data/repos/login_repo.dart';
-import 'package:flutter_advanced/features/auth/logic/login_cubit/login_state.dart';
+import 'package:flutter_advanced/features/auth/data/models/signup_request_body.dart';
+import 'package:flutter_advanced/features/auth/data/repos/signup_repo.dart';
+import 'package:flutter_advanced/features/auth/logic/signup_cubit/signup_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._loginRepo) : super(const LoginState.initial());
-
-  final LoginRepo _loginRepo;
+class SignupCubit extends Cubit<SignupState> {
+  SignupCubit(this.signupRepo) : super(const SignupState.initial());
+  final SignupRepo signupRepo;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
+  int selectedGender = 0;
+  String phone = '';
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+
   ValueNotifier<bool> emailValid = ValueNotifier<bool>(false);
   ValueNotifier<bool> passwordValid = ValueNotifier<bool>(false);
-  ValueNotifier<bool> shouldLoginButtonWork = ValueNotifier<bool>(false);
+  ValueNotifier<bool> confirmPasswordValid = ValueNotifier<bool>(false);
 
-  void emitLoginState() async {
-    emit(const LoginState.loading());
-    LoginRequestBody loginRequestBody = LoginRequestBody(
+  ValueNotifier<bool> shouldLoginButtonWork = ValueNotifier<bool>(false);
+  void emitSignupState() async {
+    emit(const SignupState.loading());
+
+    final SignupRequestBody signupRequestBody = SignupRequestBody(
+      phone: phone,
+      name: nameController.text,
       email: emailController.text,
       password: passwordController.text,
+      passwordConfirmation: confirmPasswordController.text,
+      gender: 0,
     );
-    final response = await _loginRepo.login(loginRequestBody);
+    final response = await signupRepo.signup(signupRequestBody);
 
     response.when(success: (data) {
-      emit(LoginState.success(data));
+      emit(SignupState.success(data));
     }, failure: (error) {
-      emit(LoginState.failure(error));
+      emit(SignupState.failure(error));
     });
   }
 
-  // String? validateEmail(String? value) {
-  //   if (value == null || value.isEmpty) {
-  //     return "Email can't be empty";
-  //   } else if (!value.contains('@')) {
-  //     return 'Please enter a valid email';
-  //   }
-  //   return null;
-  // }
   void validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       emailValid.value = false;
@@ -71,5 +73,11 @@ class LoginCubit extends Cubit<LoginState> {
         hasSpecialCharacter;
 
     shouldLoginButtonWork.value = emailValid.value && passwordValid.value;
+  }
+
+  void validateConfirmPassword() {
+    final pass = passwordController.text;
+    final confirmPass = confirmPasswordController.text;
+    confirmPasswordValid.value = pass == confirmPass;
   }
 }
