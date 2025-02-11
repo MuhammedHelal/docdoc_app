@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced/features/auth/data/models/login_request_body.dart';
 import 'package:flutter_advanced/features/auth/logic/login_cubit/login_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,12 +18,7 @@ class LoginButton extends StatelessWidget {
           ),
           onPressed: value
               ? () {
-                  cubit.emitLoginState(
-                    LoginRequestBody(
-                      email: cubit.emailController.text,
-                      password: cubit.passwordController.text,
-                    ),
-                  );
+                  cubit.emitLoginState();
                 }
               : null,
           child: const Text('Login'),

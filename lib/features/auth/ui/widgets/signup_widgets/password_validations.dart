@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/helpers/regex.dart';
-import 'package:flutter_advanced/features/auth/logic/login_cubit/login_cubit.dart';
+import 'package:flutter_advanced/features/auth/logic/signup_cubit/signup_cubit.dart';
+import 'package:flutter_advanced/features/auth/ui/widgets/validate_row.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:gap/gap.dart';
 
 class PasswordValidations extends StatefulWidget {
   const PasswordValidations({super.key});
@@ -13,11 +12,11 @@ class PasswordValidations extends StatefulWidget {
 }
 
 class _PasswordValidationsState extends State<PasswordValidations> {
-  late final LoginCubit cubit;
+  late final SignupCubit cubit;
   @override
   void initState() {
     super.initState();
-    cubit = context.read<LoginCubit>();
+    cubit = context.read<SignupCubit>();
     cubit.passwordController.addListener(
       () {
         final pass = cubit.passwordController.text;
@@ -60,37 +59,6 @@ class _PasswordValidationsState extends State<PasswordValidations> {
         ValidationRow(
           title: 'At least 1 special character',
           isValid: hasSpecialCharacter,
-        ),
-      ],
-    );
-  }
-}
-
-class ValidationRow extends StatelessWidget {
-  const ValidationRow({super.key, required this.title, required this.isValid});
-  final String title;
-  final bool isValid;
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          isValid ? Icons.check : Icons.close,
-          color: isValid ? Colors.green : Colors.red,
-        ),
-        Gap(5.h),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 13.sp,
-            overflow: TextOverflow.ellipsis,
-            decoration:
-                isValid ? TextDecoration.lineThrough : TextDecoration.none,
-            decorationStyle: TextDecorationStyle.solid,
-            decorationThickness: 1,
-            decorationColor: Colors.grey,
-            color: isValid ? Colors.green : Colors.red,
-          ),
         ),
       ],
     );
