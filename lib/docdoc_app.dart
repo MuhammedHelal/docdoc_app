@@ -3,7 +3,6 @@ import 'package:flutter_advanced/core/theming/text_styles.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/routing/on_generate_route.dart';
-import 'core/routing/routes_strings.dart';
 import 'core/theming/colors.dart';
 
 class DocdocApp extends StatelessWidget {
@@ -18,7 +17,6 @@ class DocdocApp extends StatelessWidget {
       builder: (_, __) => MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: onGenerateRoute,
-        initialRoute: RoutesStrings.onBoarding,
         theme: ThemeData(
           inputDecorationTheme: InputDecorationTheme(
             iconColor: AppColors.primary,

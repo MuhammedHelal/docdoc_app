@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced/core/theming/text_styles.dart';
-import 'package:flutter_advanced/features/auth/ui/widgets/login_bloc_listener.dart';
-import 'package:flutter_advanced/features/auth/ui/widgets/login_button.dart';
-import 'package:flutter_advanced/features/auth/ui/widgets/terms_and_donot_have_account.dart';
-import 'package:flutter_advanced/features/auth/ui/widgets/login_form.dart';
+import 'package:flutter_advanced/features/auth/ui/widgets/login_widgets/login_bloc_listener.dart';
+import 'package:flutter_advanced/features/auth/ui/widgets/login_widgets/login_button.dart';
+import 'package:flutter_advanced/features/auth/ui/widgets/login_widgets/login_form.dart';
+import 'package:flutter_advanced/features/auth/ui/widgets/login_widgets/terms_and_donot_have_account.dart';
+import 'package:flutter_advanced/features/auth/ui/widgets/terms_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 
@@ -46,7 +47,9 @@ class LoginView extends StatelessWidget {
                 Gap(41.h),
                 const LoginButton(),
                 Gap(32.h),
-                const TermsAndDonotHaveAccount(),
+                const TermsWidget(),
+                Gap(24.h),
+                const DonotHaveAccount(),
                 const LoginBlocListener(),
               ],
             ),
