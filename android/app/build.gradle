@@ -37,6 +37,21 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
+
+    flavorDimensions += "default"
+
+    productFlavors {
+        create("local") {
+            dimension = "default"
+            resValue("string", "app_name", "local DocDoc") // Corrected resValue usage
+            applicationIdSuffix = ".local"
+        }
+        create("prod") {
+            dimension = "default"
+            resValue("string", "app_name", "prod DocDoc") // Corrected resValue usage
+       // applicationIdSuffix = ".local"
+        }
+    }
 }
 
 flutter {
